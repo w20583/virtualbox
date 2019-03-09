@@ -28,7 +28,8 @@
 # then you can remove all the shit you copied
 # 	rm -rf /usr/share/virtualbox /usr/lib/virtualbox
 #
-FROM debian:stretch-slim
+#FROM debian:stretch-slim
+FROM ubuntu:18.04
 LABEL maintainer "Jessie Frazelle <jess@linux.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -51,7 +52,7 @@ RUN buildDeps=' \
 	&& curl -sSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | apt-key add - \
 	&& echo "deb http://download.virtualbox.org/virtualbox/debian stretch contrib" >> /etc/apt/sources.list.d/virtualbox.list \
 	&& apt-get update && apt-get install -y \
-	virtualbox-5.2 \
+	virtualbox-6.0 \
 	--no-install-recommends \
 	&& apt-get purge -y --auto-remove $buildDeps
 
